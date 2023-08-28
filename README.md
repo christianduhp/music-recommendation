@@ -115,4 +115,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests for 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-![Music Recommendation](https://github.com/christianduhp/music-recommendation/assets/85292359/433ce0da-60a5-4632-84a9-4cd7f89ae725)
+![Music Recommendation](https://github.com/christianduhp/music-recommendation-/assets/85292359/06edcd5d-d9a7-480a-b76d-572849b8e48d)
