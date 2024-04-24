@@ -1,6 +1,20 @@
 # Music Recommendation System
 
-This is a music recommendation system project that utilizes Spotify data to recommend songs based on an input track. The project encompasses various functionalities, including data preprocessing, visualization, and machine learning with clustering methods, alongside Spotify authentication.
+This project is a web application built with Flask that recommends music based on user preferences. It utilizes machine learning techniques for music clustering and the Spotify API for fetching detailed information about recommended songs.
+
+## Features
+
+1. Music Recommendation: Users can select their favorite artist and song to receive personalized music recommendations based on their musical taste.
+2. Advanced Machine Learning: The recommendations are generated using advanced machine learning techniques. The algorithm analyzes various factors such as valence, acousticness, danceability, energy, liveness, and speechiness of the music.
+3. Spotify Integration: Detailed information about recommended songs, including the song name, artist name, Spotify URL, and album image, is fetched using the Spotify API.
+4. User-Friendly Interface: The application provides a user-friendly interface for easy navigation and interaction.
+
+## How It Works
+
+1. Select Artist and Song: Users choose their favorite artist and song from the provided dropdown menus.
+2. Fetch Recommendations: Upon clicking the "Pesquisar" button, the application sends an AJAX request to the server to fetch music recommendations based on the selected artist and song.
+3. Display Recommendations: The server processes the request, generates recommendations using machine learning, and sends back a JSON response containing information about recommended songs.
+4. Show Recommendations: The application dynamically renders music cards displaying the recommended songs' details, including song name, artist, and album image.
 
 ## Prerequisites
 
@@ -8,6 +22,7 @@ Before running this project, ensure that you have the following prerequisites in
 
 - Python 3.x
 - Python libraries: pandas, scikit-learn, spotipy, plotly, matplotlib, scikit-image
+- Spotify Developer Account
 
 ### Spotify Configuration
 
@@ -15,62 +30,29 @@ You'll also need Spotify credentials for authentication. Follow the steps below 
 
 1. Access [Spotify for Developers](https://developer.spotify.com/dashboard/) and log in or create an account.
 2. Create an app in the Spotify Dashboard and obtain your Client ID and Client Secret.
-3. In the `spotify/config.json` file, replace `'YOUR_CLIENT_ID'`, `'YOUR_CLIENT_SECRET'` and `'REDIRECT_URI'` with your credentials.
+3. In the `spotify/config.json` file, replace `'YOUR_CLIENT_ID'`, `'YOUR_CLIENT_SECRET'`, and `'REDIRECT_URI'` with your credentials.
 
 ## Project Structure
 
 The project structure is organized as follows:
 
-```
-music_recommendation_project/
-│
-├── data/
-│   ├── all_data.csv           # All data
-│   ├── data_by_genres.csv     # Data by Genres
-│   └── data_by_years.csv      # Data by Years
-│
-├── functions/
-│   ├── __init__.py            # Python package indicating that 'functions' is a package
-│   ├── preprocess.py          # Data preprocessing functions
-│   ├── visualize.py           # Data visualization functions
-│   ├── clustering_genres.py   # Functions for genre clustering
-│   └── clustering_music.py    # Functions for music clustering
-│
-├── spotify/
-│   ├── __init__.py            # Python package indicating that 'spotify' is a package
-│   ├── auth.py                # Spotify authentication functions
-│   ├── config.json            # Json file with your Sportify credentials
-│   └── recommendations.py     # Music recommendation functions
-│
-├── main.py                     # Main file that executes the code
-├── README.md                   # This README file
-├── LICENSE                     # Project license
-└── requirements.txt            # Python dependencies list
-```
+
+- **app.py**: Contains the Flask application and routes for handling requests.
+- **functions/**: Directory containing utility functions for data preprocessing and music clustering.
+- **spotify/**: Directory containing functions for interacting with the Spotify API.
+- **templates/**: Directory containing HTML templates for rendering pages.
+- **static/**: Directory containing static files such as CSS stylesheets and JavaScript scripts.
+- **data/**: Contains CSV files with Spotify data.
 
 ## Features
 
 This project offers the following features:
 
-### Data Preprocessing
-
-- `functions/preprocess.py` contains functions to load and preprocess data, including removing unnecessary columns and filtering data by year.
-
-### Visualization
-
-- `functions/visualize.py` includes functions for data visualization, such as line charts, clusters and displaying images of music album covers.
-
-### Spotify Authentication
-
-- `spotify/auth.py` provides functions for authenticating with Spotify using the provided credentials.
-
-### Music Recommendation
-
-- `spotify/recommendations.py` contains functions to recommend music based on an input track. The recommendation is made based on the similarity of songs.
-
-### Clustering
-
-- `functions/clustering_genres.py` and `functions/clustering_music.py` perform clustering on data using PCA and K-Means, grouping songs by genre and musical characteristics, respectively.
+- Data Preprocessing
+- Visualization
+- Spotify Authentication
+- Music Recommendation
+- Clustering
 
 ## Usage
 
@@ -78,35 +60,30 @@ To use this music recommendation system, follow the instructions below:
 
 1. Clone this repository to your local environment:
 
-   ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
-   ```
+```bash
+git clone https://github.com/christianduhp/music-recommendation.git
+```
 
 2. Install the required Python dependencies:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+```
 
-3. Configure your Spotify credentials in the `config.py` file:
+Configure your Spotify credentials in the config.py file:
 
-   ```python
-   client_id = 'YOUR_CLIENT_ID'
-   client_secret = 'YOUR_CLIENT_SECRET'
-   ```
+```bash
+client_id = 'YOUR_CLIENT_ID'
+client_secret = 'YOUR_CLIENT_SECRET'
+```
 
-4. Run the `main.py` file to use the music recommendation system and explore the project's functionalities:
+Run the main.py file to start the web application:
 
-   ```bash
-   python main.py
-   ```
+```bash
+python main.py
+```
 
-5. When running the script, you can choose a music track for recommendation by modifying the `music_name` variable in the `main.py` file. For example:
-
-   ```python
-   music_name = 'Ariana Grande - 7 rings'  # Replace with the name of your desired input track
-   ```
+5. Access the web application in your browser at http://localhost:5000.
 
 ## Contributions
 
@@ -114,5 +91,6 @@ Contributions are welcome! Feel free to open issues or submit pull requests for 
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
-![Music Recommendation](https://github.com/christianduhp/music-recommendation-/assets/85292359/06edcd5d-d9a7-480a-b76d-572849b8e48d)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+![website](https://github.com/christianduhp/music-recommendation/assets/85292359/631d3d4a-cab7-47a6-a4d8-c25c9e09fcb5)
