@@ -10,6 +10,7 @@ COPY . ./
 RUN pip install -r requirements.txt
 
 # Expõe a porta 8080, que é a porta padrão em que o Flask é executado
+ENV PORT 8080
 EXPOSE 8080
 
 # Comando a ser executado quando o contêiner for iniciado
