@@ -1,3 +1,5 @@
+import os 
+
 from flask import Flask, render_template, request, jsonify
 from functions.utils import preprocess_data, dropbox_values
 from functions.clustering_music import clustering_music_projection
@@ -49,4 +51,5 @@ def get_songs_by_artist():
 
 
 if __name__ == "__main__":
-    app.run(debug=False, port=8080, host="0.0.0.0")
+    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get("PORT", 8080)))
+
