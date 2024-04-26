@@ -30,7 +30,13 @@ You'll also need Spotify credentials for authentication. Follow the steps below 
 
 1. Access [Spotify for Developers](https://developer.spotify.com/dashboard/) and log in or create an account.
 2. Create an app in the Spotify Dashboard and obtain your Client ID and Client Secret.
-3. In the `spotify/config.json` file, replace `'YOUR_CLIENT_ID'`, `'YOUR_CLIENT_SECRET'`, and `'REDIRECT_URI'` with your credentials.
+3. Create a `.env` file in the root directory of your project with the following content:
+
+    ```
+    SPOTIFY_CLIENT_ID=your_client_id
+    SPOTIFY_CLIENT_SECRET=your_client_secret
+    SPOTIFY_REDIRECT_URI=your_redirect_uri
+    ```
 
 ## Project Structure
 
@@ -70,12 +76,9 @@ git clone https://github.com/christianduhp/music-recommendation.git
 pip install -r requirements.txt
 ```
 
-Configure your Spotify credentials in the config.py file:
+Configure your Spotify credentials in the .env file:
 
-```bash
-client_id = 'YOUR_CLIENT_ID'
-client_secret = 'YOUR_CLIENT_SECRET'
-```
+Replace `your_client_id`, `your_client_secret`, and `your_redirect_uri` with your actual Spotify client ID, client secret, and redirect URI, respectively.
 
 Run the main.py file to start the web application:
 

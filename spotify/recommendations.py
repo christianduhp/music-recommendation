@@ -1,7 +1,12 @@
-import pandas as pd
+import os
 from sklearn.metrics.pairwise import euclidean_distances
 from spotify.auth import setup_spotify_authentication as sp
 
+spotify_client_id = os.environ.get('SPOTIFY_CLIENT_ID')
+spotify_client_secret = os.environ.get('SPOTIFY_CLIENT_SECRET')
+spotify_redirect_uri = os.environ.get('SPOTIFY_REDIRECT_URI')
+
+spotify = sp(spotify_client_id, spotify_client_secret, spotify_redirect_uri)
 
 def recommend_id(playlist_id):
     """
@@ -17,7 +22,6 @@ def recommend_id(playlist_id):
         tuple: A tuple containing four lists - track names, album image URLs,
         artist names, and Spotify URLs.
     """
-    spotify = sp("spotify/config.json")
 
     image_url = []
     name = []
