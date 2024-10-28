@@ -1,21 +1,24 @@
-import os 
+import os
 
 from flask import Flask, render_template, request, jsonify
 from functions.utils import preprocess_data, dropbox_values
 from functions.clustering_music import clustering_music_projection
 from spotify.recommendations import recommend_id, recommend_music
 
+from datetime import datetime
+
 app = Flask(__name__)
 
 data = preprocess_data("data/all_data.csv")
 
-projection_v2, components_v2, var_exp_v2, projection_shape_v2 = clustering_music_projection(data)
+projection, _, _, _ = clustering_music_projection(data)
 
 
 @app.route("/")
 def index():
+    year = datetime.today().year
     artists, songs = dropbox_values(data)
-    return render_template("index.html", artists=artists, songs=songs)
+    return render_template("index.html", artists=artists, songs=songs, year=year)
 
 
 @app.route("/search")
@@ -24,7 +27,7 @@ def recommend_music_route():
     artist_song = request.args.get("q")
 
     # Chama a função que gera as recomendações e obtenha os dados necessários
-    playlst_id = recommend_music(artist_song, projection_v2, data)["id"]
+    playlst_id = recommend_music(artist_song, projection, data)["id"]
     song_names, image_urls, artist, spotify_url = recommend_id(playlst_id)
 
     music_data = []
@@ -51,5 +54,4 @@ def get_songs_by_artist():
 
 
 if __name__ == "__main__":
-    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get("PORT", 8080)))
-
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))

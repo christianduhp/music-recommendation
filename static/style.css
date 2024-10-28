@@ -84,9 +84,9 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px var(--shadow);
     padding: 20px;
-    position: absolute;
-    margin-right: 1em;
     display: flex;
+    text-decoration: none;
+    margin: 1.5em;
 }
 
 
@@ -120,6 +120,7 @@ body {
     box-shadow: 0 4px 8px var(--shadow);
     padding: 20px;
     margin-bottom: 20px;
+
 }
 
 .song-card:hover {
@@ -156,6 +157,23 @@ option {
 
 option[value=""] {
     color: #999;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 0.9em;
+    background-color: white;
+    color: var(--color-green);
+    padding: 1em;
+    box-shadow: 8px 4px 4px 8px rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-green)
 }
 
 /* Definir a animação de rotação */

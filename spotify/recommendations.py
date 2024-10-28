@@ -2,11 +2,11 @@ import os
 from sklearn.metrics.pairwise import euclidean_distances
 from spotify.auth import setup_spotify_authentication as sp
 
-spotify_client_id = os.environ.get('SPOTIFY_CLIENT_ID')
-spotify_client_secret = os.environ.get('SPOTIFY_CLIENT_SECRET')
-spotify_redirect_uri = os.environ.get('SPOTIFY_REDIRECT_URI')
+spotify_client_id = os.environ.get("SPOTIFY_CLIENT_ID")
+spotify_client_secret = os.environ.get("SPOTIFY_CLIENT_SECRET")
 
-spotify = sp(spotify_client_id, spotify_client_secret, spotify_redirect_uri)
+spotify = sp(spotify_client_id, spotify_client_secret)
+
 
 def recommend_id(playlist_id):
     """

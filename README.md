@@ -2,6 +2,8 @@
 
 This project is a web application built with Flask that recommends music based on user preferences. It utilizes machine learning techniques for music clustering and the Spotify API for fetching detailed information about recommended songs.
 
+![music_recommendation_website](https://github.com/user-attachments/assets/95dc1bcb-e72b-4b47-a635-c2fb89e0a15a)
+
 ## Features
 
 1. Music Recommendation: Users can select their favorite artist and song to receive personalized music recommendations based on their musical taste.
@@ -32,16 +34,14 @@ You'll also need Spotify credentials for authentication. Follow the steps below 
 2. Create an app in the Spotify Dashboard and obtain your Client ID and Client Secret.
 3. Create a `.env` file in the root directory of your project with the following content:
 
-    ```
-    SPOTIFY_CLIENT_ID=your_client_id
-    SPOTIFY_CLIENT_SECRET=your_client_secret
-    SPOTIFY_REDIRECT_URI=your_redirect_uri
-    ```
+   ```
+   SPOTIFY_CLIENT_ID=your_client_id
+   SPOTIFY_CLIENT_SECRET=your_client_secret
+   ```
 
 ## Project Structure
 
 The project structure is organized as follows:
-
 
 - **app.py**: Contains the Flask application and routes for handling requests.
 - **functions/**: Directory containing utility functions for data preprocessing and music clustering.
@@ -83,7 +83,7 @@ Replace `your_client_id`, `your_client_secret`, and `your_redirect_uri` with you
 Run the main.py file to start the web application:
 
 ```bash
-python main.py
+python app.py
 ```
 
 5. Access the web application in your browser at http://localhost:5000.
@@ -95,5 +95,3 @@ Contributions are welcome! Feel free to open issues or submit pull requests for 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-![website](https://github.com/christianduhp/music-recommendation/assets/85292359/631d3d4a-cab7-47a6-a4d8-c25c9e09fcb5)
